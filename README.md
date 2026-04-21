@@ -15,24 +15,22 @@ Aplicación de escritorio para el registro de contactos de radioaficionados (QSO
 
 ### Descargar
 
-| Plataforma | Descarga |
-|------------|----------|
-| 🐧 Linux   | [**Descargar para Linux**](https://github.com/pbracc/qso_logger_app/releases/latest/download/qso_logger_linux) |
-| 🪟 Windows | [**Descargar para Windows**](https://github.com/pbracc/qso_logger_app/releases/latest/download/qso_logger_windows.exe) |
-
-> También podés ir directamente a la página de [**Releases**](https://github.com/pbracc/qso_logger_app/releases/latest) para ver las notas de la versión.
+| Plataforma | Formato | Descarga |
+|------------|---------|----------|
+| 🐧 Linux   | AppImage | [⬇ Descargar](https://github.com/pbracc/qso_logger_app/releases/download/v3.9.4/qso_logger_3.9.4_amd64.AppImage) <!-- LINUX_ASSET --> |
+| 🪟 Windows | Instalador MSI | [⬇ Descargar](https://github.com/pbracc/qso_logger_app/releases/download/v3.9.4/qso_logger_3.9.4_x64_en-US.msi) <!-- WIN_ASSET --> |
 
 ### Instalación
 
 **Linux**
 ```bash
-chmod +x qso_logger_linux
-./qso_logger_linux
+chmod +x qso_logger_*.AppImage
+./qso_logger_*.AppImage
 ```
 
 **Windows**
 
-Ejecutar el instalador `qso_logger_windows.exe` y seguir los pasos.
+Ejecutar el archivo `.msi` descargado y seguir los pasos del instalador.
 
 ### Versiones anteriores
 
@@ -46,24 +44,22 @@ Desktop application for amateur radio contact logging (QSOs).
 
 ### Download
 
-| Platform | Download |
-|----------|----------|
-| 🐧 Linux   | [**Download for Linux**](https://github.com/pbracc/qso_logger_app/releases/latest/download/qso_logger_linux) |
-| 🪟 Windows | [**Download for Windows**](https://github.com/pbracc/qso_logger_app/releases/latest/download/qso_logger_windows.exe) |
-
-> You can also visit the [**Releases**](https://github.com/pbracc/qso_logger_app/releases/latest) page to read the release notes.
+| Platform | Format | Download |
+|----------|--------|----------|
+| 🐧 Linux   | AppImage | [⬇ Download](https://github.com/pbracc/qso_logger_app/releases/download/v3.9.4/qso_logger_3.9.4_amd64.AppImage) <!-- LINUX_ASSET --> |
+| 🪟 Windows | MSI Installer | [⬇ Download](https://github.com/pbracc/qso_logger_app/releases/download/v3.9.4/qso_logger_3.9.4_x64_en-US.msi) <!-- WIN_ASSET --> |
 
 ### Installation
 
 **Linux**
 ```bash
-chmod +x qso_logger_linux
-./qso_logger_linux
+chmod +x qso_logger_*.AppImage
+./qso_logger_*.AppImage
 ```
 
 **Windows**
 
-Run the `qso_logger_windows.exe` installer and follow the steps.
+Run the downloaded `.msi` file and follow the installer steps.
 
 ### Previous versions
 

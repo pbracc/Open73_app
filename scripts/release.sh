@@ -4,13 +4,13 @@ set -euo pipefail
 # ---------------------------------------------------------------------------
 # release.sh — publica una nueva versión de QSO Logger en GitHub Releases
 #
-# Requisitos: git, gh (GitHub CLI autenticado), jq
+# Requisitos: git, curl, jq
 #
 # Uso:
 #   1. Editar latest.json con la nueva versión y las notas de release
 #   2. Copiar los binarios a staging/:
-#        staging/qso_logger_linux
-#        staging/qso_logger_windows.exe   (o .msi, o .exe instalador)
+#        staging/qso_logger_X.Y.Z_amd64.AppImage
+#        staging/qso_logger_X.Y.Z_x64_en-US.msi
 #   3. Ejecutar:  ./scripts/release.sh
 # ---------------------------------------------------------------------------
 
@@ -18,6 +18,7 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 LATEST_JSON="$REPO_ROOT/latest.json"
 STAGING_DIR="$REPO_ROOT/staging"
 RELEASES_MD="$REPO_ROOT/RELEASES.md"
+ENV_FILE="$REPO_ROOT/.env"
 
 # ---- Colores ---------------------------------------------------------------
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'
@@ -26,13 +27,20 @@ warn()  { echo -e "${YELLOW}[!]${NC} $*"; }
 error() { echo -e "${RED}[✗]${NC} $*"; exit 1; }
 
 # ---- Dependencias ----------------------------------------------------------
-for cmd in git gh jq; do
+for cmd in git curl jq; do
   command -v "$cmd" &>/dev/null || error "Falta el comando: $cmd"
 done
 
+# ---- Cargar token ----------------------------------------------------------
+if [[ -f "$ENV_FILE" ]]; then
+  # shellcheck disable=SC1090
+  source "$ENV_FILE"
+fi
+[[ -z "${GITHUB_TOKEN:-}" ]] && error "No se encontró GITHUB_TOKEN. Agregalo en .env: GITHUB_TOKEN=ghp_..."
+
 # ---- Leer latest.json ------------------------------------------------------
 VERSION=$(jq -r '.version' "$LATEST_JSON")
-NOTES=$(jq -r '.notes'   "$LATEST_JSON")
+NOTES=$(jq -r '.notes'     "$LATEST_JSON")
 TAG="v${VERSION}"
 
 [[ "$VERSION" == "0.0.0" ]] && error "Actualizá la versión en latest.json antes de hacer el release."
@@ -40,25 +48,30 @@ TAG="v${VERSION}"
 
 info "Versión detectada: $TAG"
 
+# ---- Obtener owner/repo desde el remote ------------------------------------
+REMOTE_URL=$(git -C "$REPO_ROOT" remote get-url origin)
+# Soporta tanto SSH (git@github.com:owner/repo.git) como HTTPS
+REPO_PATH=$(echo "$REMOTE_URL" | sed -E 's#(git@github\.com:|https://github\.com/)##;s#\.git$##')
+REPO_URL="https://github.com/${REPO_PATH}"
+OWNER=$(echo "$REPO_PATH" | cut -d/ -f1)
+REPO=$(echo "$REPO_PATH"  | cut -d/ -f2)
+
+info "Repositorio: ${OWNER}/${REPO}"
+
 # ---- Verificar que el tag no exista ya ------------------------------------
 if git -C "$REPO_ROOT" rev-parse "$TAG" &>/dev/null; then
   error "El tag $TAG ya existe. Actualizá la versión en latest.json."
 fi
 
 # ---- Detectar binarios en staging/ -----------------------------------------
-LINUX_BIN=$(find "$STAGING_DIR" -maxdepth 1 -type f \
-  ! -name '.gitkeep' \
-  \( -name '*linux*' -o -name '*Linux*' \) | head -1)
-
-WIN_BIN=$(find "$STAGING_DIR" -maxdepth 1 -type f \
-  ! -name '.gitkeep' \
-  \( -name '*.exe' -o -name '*.msi' -o -name '*windows*' -o -name '*Windows*' \) | head -1)
+LINUX_BIN=$(find "$STAGING_DIR" -maxdepth 1 -type f -name "*.AppImage" | head -1)
+WIN_BIN=$(find   "$STAGING_DIR" -maxdepth 1 -type f -name "*.msi"      | head -1)
 
 [[ -z "$LINUX_BIN" && -z "$WIN_BIN" ]] && \
   error "No se encontraron binarios en staging/. Copiá al menos uno antes de continuar."
 
-[[ -n "$LINUX_BIN" ]]  && info "Binario Linux  : $(basename "$LINUX_BIN")"
-[[ -n "$WIN_BIN"   ]]  && info "Binario Windows: $(basename "$WIN_BIN")"
+[[ -n "$LINUX_BIN" ]] && info "Binario Linux  : $(basename "$LINUX_BIN")"
+[[ -n "$WIN_BIN"   ]] && info "Binario Windows: $(basename "$WIN_BIN")"
 
 # ---- Confirmar -------------------------------------------------------------
 echo ""
@@ -66,10 +79,8 @@ warn "Se va a crear el release $TAG. ¿Continuar? [s/N]"
 read -r CONFIRM
 [[ "$CONFIRM" =~ ^[sS]$ ]] || { info "Cancelado."; exit 0; }
 
-# ---- Actualizar latest.json con la URL exacta del tag ----------------------
-REPO_URL="https://github.com/$(gh repo view --json nameWithOwner -q .nameWithOwner 2>/dev/null || echo 'pbracc/qso_logger_app')"
+# ---- Actualizar latest.json ------------------------------------------------
 LATEST_URL="${REPO_URL}/releases/latest"
-
 jq --arg url "$LATEST_URL" '.url = $url' "$LATEST_JSON" > "${LATEST_JSON}.tmp" \
   && mv "${LATEST_JSON}.tmp" "$LATEST_JSON"
 
@@ -79,23 +90,17 @@ WIN_FILENAME=$(basename "${WIN_BIN:-}")
 
 LINUX_LINK=""
 WIN_LINK=""
-[[ -n "$LINUX_BIN" ]] && LINUX_LINK="[⬇ Linux](${REPO_URL}/releases/download/${TAG}/${LINUX_FILENAME})"
-[[ -n "$WIN_BIN"   ]] && WIN_LINK="[⬇ Windows](${REPO_URL}/releases/download/${TAG}/${WIN_FILENAME})"
+[[ -n "$LINUX_BIN" ]] && LINUX_LINK="[⬇ AppImage](${REPO_URL}/releases/download/${TAG}/${LINUX_FILENAME})"
+[[ -n "$WIN_BIN"   ]] && WIN_LINK="[⬇ MSI](${REPO_URL}/releases/download/${TAG}/${WIN_FILENAME})"
 
 NOTES_ESCAPED="${NOTES//$'\n'/ }"
+ROW="| ${TAG} | ${LINUX_LINK} | ${WIN_LINK} | ${NOTES_ESCAPED} |"
 
-# Filas para ambas tablas (español e inglés, mismos links)
-ROW_ES="| ${TAG} | ${LINUX_LINK} | ${WIN_LINK} | ${NOTES_ESCAPED} |"
-ROW_EN="| ${TAG} | ${LINUX_LINK} | ${WIN_LINK} | ${NOTES_ESCAPED} |"
-
-# Insertar después de cada línea de separadores de tabla (|---|)
-# La primera ocurrencia corresponde a la tabla en español, la segunda a la de inglés
-awk -v row_es="$ROW_ES" -v row_en="$ROW_EN" '
+awk -v row="$ROW" '
   /^\|[-| ]+\|/ {
     count++
     print
-    if (count == 1) { print row_es }
-    if (count == 2) { print row_en }
+    if (count == 1 || count == 2) { print row }
     next
   }
   { print }
@@ -103,33 +108,76 @@ awk -v row_es="$ROW_ES" -v row_en="$ROW_EN" '
 
 info "RELEASES.md actualizado."
 
-# ---- Commit latest.json + RELEASES.md -------------------------------------
-git -C "$REPO_ROOT" add latest.json RELEASES.md
-git -C "$REPO_ROOT" commit -m "release: ${TAG}"
-info "Commit creado."
+# ---- Actualizar links de descarga en README.md -----------------------------
+README="$REPO_ROOT/README.md"
+if [[ -n "$LINUX_BIN" ]]; then
+  LINUX_URL="${REPO_URL}/releases/download/${TAG}/${LINUX_FILENAME}"
+  sed -i "s|\\[⬇ Descargar\\]([^)]*) <!-- LINUX_ASSET -->|[⬇ Descargar](${LINUX_URL}) <!-- LINUX_ASSET -->|g" "$README"
+  sed -i "s|\\[⬇ Download\\]([^)]*) <!-- LINUX_ASSET -->|[⬇ Download](${LINUX_URL}) <!-- LINUX_ASSET -->|g" "$README"
+fi
+if [[ -n "$WIN_BIN" ]]; then
+  WIN_URL="${REPO_URL}/releases/download/${TAG}/${WIN_FILENAME}"
+  sed -i "s|\\[⬇ Descargar\\]([^)]*) <!-- WIN_ASSET -->|[⬇ Descargar](${WIN_URL}) <!-- WIN_ASSET -->|g" "$README"
+  sed -i "s|\\[⬇ Download\\]([^)]*) <!-- WIN_ASSET -->|[⬇ Download](${WIN_URL}) <!-- WIN_ASSET -->|g" "$README"
+fi
+info "README.md actualizado."
 
-# ---- Tag y push ------------------------------------------------------------
+# ---- Commit + tag + push ---------------------------------------------------
+git -C "$REPO_ROOT" add latest.json RELEASES.md README.md
+git -C "$REPO_ROOT" commit -m "release: ${TAG}"
 git -C "$REPO_ROOT" tag "$TAG"
 git -C "$REPO_ROOT" push origin main
 git -C "$REPO_ROOT" push origin "$TAG"
-info "Tag $TAG pusheado."
+info "Commit y tag $TAG pusheados."
 
-# ---- Crear GitHub Release con los binarios ---------------------------------
-UPLOAD_FILES=()
-[[ -n "$LINUX_BIN" ]] && UPLOAD_FILES+=("$LINUX_BIN")
-[[ -n "$WIN_BIN"   ]] && UPLOAD_FILES+=("$WIN_BIN")
+# ---- Crear GitHub Release via API ------------------------------------------
+info "Creando GitHub Release..."
+RELEASE_BODY="${NOTES:-Sin notas de release.}"
 
-RELEASE_NOTES="${NOTES:-Sin notas de release.}"
+RELEASE_RESPONSE=$(curl -sf \
+  -H "Authorization: token ${GITHUB_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"tag_name\": \"${TAG}\",
+    \"name\": \"QSO Logger ${TAG}\",
+    \"body\": $(echo "$RELEASE_BODY" | jq -Rs .),
+    \"draft\": false,
+    \"prerelease\": false,
+    \"make_latest\": \"true\"
+  }" \
+  "https://api.github.com/repos/${OWNER}/${REPO}/releases")
 
-gh release create "$TAG" \
-  "${UPLOAD_FILES[@]}" \
-  --repo "$(gh repo view --json nameWithOwner -q .nameWithOwner)" \
-  --title "QSO Logger ${TAG}" \
-  --notes "$RELEASE_NOTES" \
-  --latest
+RELEASE_ID=$(echo "$RELEASE_RESPONSE" | jq -r '.id')
+[[ -z "$RELEASE_ID" || "$RELEASE_ID" == "null" ]] && \
+  error "No se pudo crear el release. Respuesta: $RELEASE_RESPONSE"
 
-info "Release $TAG publicado exitosamente."
+info "Release creado (id: $RELEASE_ID). Subiendo binarios..."
+
+# ---- Subir binarios como assets --------------------------------------------
+upload_asset() {
+  local filepath="$1"
+  local filename
+  filename=$(basename "$filepath")
+  local mime="application/octet-stream"
+
+  info "Subiendo: $filename"
+  RESULT=$(curl -sf \
+    -H "Authorization: token ${GITHUB_TOKEN}" \
+    -H "Content-Type: ${mime}" \
+    --data-binary @"$filepath" \
+    "https://uploads.github.com/repos/${OWNER}/${REPO}/releases/${RELEASE_ID}/assets?name=${filename}")
+
+  local state
+  state=$(echo "$RESULT" | jq -r '.state // "error"')
+  [[ "$state" == "uploaded" ]] || error "Falló la subida de $filename. Respuesta: $RESULT"
+  info "$filename subido correctamente."
+}
+
+[[ -n "$LINUX_BIN" ]] && upload_asset "$LINUX_BIN"
+[[ -n "$WIN_BIN"   ]] && upload_asset "$WIN_BIN"
+
 echo ""
+info "Release $TAG publicado exitosamente."
 info "URL: ${REPO_URL}/releases/tag/${TAG}"
 
 # ---- Limpiar staging/ ------------------------------------------------------
