@@ -11,6 +11,7 @@
 | Versión | Linux | Windows | Notas |
 |---------|-------|---------|-------|
 | v3.30.0 | [⬇ AppImage](https://github.com/pbracc/Open73_app/releases/download/v3.30.0/open73_3.30.0_amd64.AppImage) | [⬇ MSI](https://github.com/pbracc/Open73_app/releases/download/v3.30.0/open73_3.30.0_x64_en-US.msi) |  |
+| v3.30.0 | [⬇ AppImage](https://github.com/pbracc/Open73_app/releases/download/v3.30.0/open73_3.30.0_amd64.AppImage) | [⬇ MSI](https://github.com/pbracc/Open73_app/releases/download/v3.30.0/open73_3.30.0_x64_en-US.msi) |  |
 
 ---
 
@@ -20,4 +21,5 @@
 
 | Version | Linux | Windows | Notes |
 |---------|-------|---------|-------|
+| v3.30.0 | [⬇ AppImage](https://github.com/pbracc/Open73_app/releases/download/v3.30.0/open73_3.30.0_amd64.AppImage) | [⬇ MSI](https://github.com/pbracc/Open73_app/releases/download/v3.30.0/open73_3.30.0_x64_en-US.msi) |  |
 | v3.30.0 | [⬇ AppImage](https://github.com/pbracc/Open73_app/releases/download/v3.30.0/open73_3.30.0_amd64.AppImage) | [⬇ MSI](https://github.com/pbracc/Open73_app/releases/download/v3.30.0/open73_3.30.0_x64_en-US.msi) |  |
