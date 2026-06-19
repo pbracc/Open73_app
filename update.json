@@ -1,0 +1,15 @@
+{
+  "version": "4.42.0",
+  "notes": "",
+  "pub_date": "2026-06-19T13:34:30Z",
+  "platforms": {
+    "linux-x86_64": {
+      "url": "https://github.com/pbracc/Open73_app/releases/download/v4.42.0/open73_4.42.0_amd64.AppImage.tar.gz",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMWJvU0w0RUhXeFVuQ1FONTZ5VUJEQUVsclFWTVZZQXRPV2MwcysrWlQ5ZUVDZTBnRzhkd0Y4aW81MmZOMXQwNWJuL05hUUZuL3JnN2xtUFJSY2RGK3dRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgxODc1OTczCWZpbGU6b3BlbjczXzQuNDIuMF9hbWQ2NC5BcHBJbWFnZS50YXIuZ3oKUjVGVEFqWjdwR29sTXh2WnVYclYzRktlRHQrU1c4d2lwTzhXSmppaVI3akJlK2dTUjNnYUxieUdvV0EvRW1OcFovT012RmhaWlBtZ2RmZkF0blUyQnc9PQo="
+    },
+    "windows-x86_64": {
+      "url": "https://github.com/pbracc/Open73_app/releases/download/v4.42.0/open73_4.42.0_x64_en-US.msi.zip",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMVJUZWV5THBZMjg3bXZXQ2Y5ZFQzMldwUlFSL3VmS1ExRXdsMHc0ejd1WVBPVEtuMnc3VE1oRXdZRWVsK3dBSVNXeGtWSE1sYzVoQ0NOZWx2ZTRZVXcwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgxODczMzE1CWZpbGU6b3BlbjczXzQuNDIuMF94NjRfZW4tVVMubXNpLnppcApvYWJsMjVpVGtlRTVzakhRYW41UnNNK1h5K2d2ZFhnQ3ZPTE90eFlRWTZmL3k4OEN3Vmw3Y1BEK0lRdUhrd0lVaThqN0pFVGNYdm9kOHVONEJxd0VCUT09Cg=="
+    }
+  }
+}
