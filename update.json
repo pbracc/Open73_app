@@ -1,15 +1,15 @@
 {
-  "version": "4.43.0",
+  "version": "4.44.0",
   "notes": "",
-  "pub_date": "2026-06-19T15:50:17Z",
+  "pub_date": "2026-06-19T16:42:37Z",
   "platforms": {
     "linux-x86_64": {
-      "url": "https://github.com/pbracc/Open73_app/releases/download/v4.43.0/open73_4.43.0_amd64.AppImage.tar.gz",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMWRPTUQzem5EeE1Dd2V5NDNkZEFmd05sWlpTN2llNXJVdzJDRzdobkkwRnVObTJFN0tHRWFMWWFwSkZMQy9kOWw1RkZVMk1lME0wVjRsZVFHWmc0S0FJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgxODgxMTEwCWZpbGU6b3BlbjczXzQuNDMuMF9hbWQ2NC5BcHBJbWFnZS50YXIuZ3oKNHJtQmhENDhPVkJENlJGVXpTWDZ3MnZhVVZManpYSFE2ZXZ5VFg5Ryt5MVJPeTVZdGhTZEpGcHV5TVdYMXQ2MUowYUxRTnBUeXpBemZPVEJaTGpVRHc9PQo="
+      "url": "https://github.com/pbracc/Open73_app/releases/download/v4.44.0/open73_4.44.0_amd64.AppImage.tar.gz",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMVFocHB6RW9BczBURW1pejhiektCVnJqMURTM0RhU2hVRnNlVDI1YkN0d2V4dlhWVGhVOS96Z05XVCtsSTlHWG9QNjlYOG9SNDVMMjFldThLbFJwaGc0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgxODg3MDcwCWZpbGU6b3BlbjczXzQuNDQuMF9hbWQ2NC5BcHBJbWFnZS50YXIuZ3oKRitZM1VGc1poKzh0M1lrcEhtUDhxbjhjcjJSdFFxNlo3VkUrQUI0Y2RXWUE2OXh4b2hxZjIzMUFCWHYwQ3U4VU84Njl4QnBhZXU2V1A3WXVTZVJEQnc9PQo="
     },
     "windows-x86_64": {
-      "url": "https://github.com/pbracc/Open73_app/releases/download/v4.43.0/open73_4.43.0_x64_en-US.msi.zip",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMVlGSTRXU2p5Ujk1ZmN3Qm1IRmxHWTBoaEFpWk9XcTVSK0RWdlZHNDNjbUpLSnJQN3M5MmpNRGtRbUM5c3U2cVByVTA5K05NQit3ajAzQWF3a2RKOGdzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgxODg0MDI5CWZpbGU6b3BlbjczXzQuNDMuMF94NjRfZW4tVVMubXNpLnppcAp3SHFuLzhuVzM5UU9FQjBLNFhUUU5ndC83SW9JZ08zbUsyeGZIem55UlFOMnBlSGt2SllIMUMyckpxVWZPTkw2VktSWmllTHdqMUlWK0h5K1d0UXVCUT09Cg=="
+      "url": "https://github.com/pbracc/Open73_app/releases/download/v4.44.0/open73_4.44.0_x64_en-US.msi.zip",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMWJPTFVUdUpVcmNNa25aWjVMQkJGaVA5UTVUcmd2RVZvc2tOanRSQndZRHIxcUhCRTJsQVN5T2FaV1RXVzdyNnk4RUswQ3VVTmhqWEcxV01Zdzk2K3dZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgxODg3MjcwCWZpbGU6b3BlbjczXzQuNDQuMF94NjRfZW4tVVMubXNpLnppcAp1dU1QajF6NmVCYmdqVjFoQnhsZFd0bnNabnRoUW16ZkVvSm84dWdQelhFUTUwNVUwRStUTk9laUlqYmppbzdZWExqOFU1emR5UFdNdnp4bEtrKzlDZz09Cg=="
     }
   }
 }

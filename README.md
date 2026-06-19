@@ -17,8 +17,8 @@ Aplicación de escritorio para el registro de contactos de radioaficionados (QSO
 
 | Plataforma | Formato | Descarga |
 |------------|---------|----------|
-| 🐧 Linux   | AppImage | [⬇ Descargar](https://github.com/pbracc/Open73_app/releases/download/v4.43.0/open73_4.43.0_amd64.AppImage) <!-- LINUX_ASSET --> |
-| 🪟 Windows | Instalador MSI | [⬇ Descargar](https://github.com/pbracc/Open73_app/releases/download/v4.43.0/open73_4.43.0_x64_en-US.msi) <!-- WIN_ASSET --> |
+| 🐧 Linux   | AppImage | [⬇ Descargar](https://github.com/pbracc/Open73_app/releases/download/v4.44.0/open73_4.44.0_amd64.AppImage) <!-- LINUX_ASSET --> |
+| 🪟 Windows | Instalador MSI | [⬇ Descargar](https://github.com/pbracc/Open73_app/releases/download/v4.44.0/open73_4.44.0_x64_en-US.msi) <!-- WIN_ASSET --> |
 
 ### Instalación
 
@@ -46,8 +46,8 @@ Desktop application for amateur radio contact logging (QSOs).
 
 | Platform | Format | Download |
 |----------|--------|----------|
-| 🐧 Linux   | AppImage | [⬇ Download](https://github.com/pbracc/Open73_app/releases/download/v4.43.0/open73_4.43.0_amd64.AppImage) <!-- LINUX_ASSET --> |
-| 🪟 Windows | MSI Installer | [⬇ Download](https://github.com/pbracc/Open73_app/releases/download/v4.43.0/open73_4.43.0_x64_en-US.msi) <!-- WIN_ASSET --> |
+| 🐧 Linux   | AppImage | [⬇ Download](https://github.com/pbracc/Open73_app/releases/download/v4.44.0/open73_4.44.0_amd64.AppImage) <!-- LINUX_ASSET --> |
+| 🪟 Windows | MSI Installer | [⬇ Download](https://github.com/pbracc/Open73_app/releases/download/v4.44.0/open73_4.44.0_x64_en-US.msi) <!-- WIN_ASSET --> |
 
 ### Installation
 
