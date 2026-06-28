@@ -10,6 +10,7 @@
 
 | Versión | Linux | Windows | Notas |
 |---------|-------|---------|-------|
+| v4.47.0 | [⬇ AppImage](https://github.com/pbracc/Open73_app/releases/download/v4.47.0/open73_4.47.0_amd64.AppImage) | [⬇ MSI](https://github.com/pbracc/Open73_app/releases/download/v4.47.0/open73_4.47.0_x64_en-US.msi) |  |
 | v4.45.5 | [⬇ AppImage](https://github.com/pbracc/Open73_app/releases/download/v4.45.5/open73_4.45.5_amd64.AppImage) | [⬇ MSI](https://github.com/pbracc/Open73_app/releases/download/v4.45.5/open73_4.45.5_x64_en-US.msi) |  |
 | v4.45.0 | [⬇ AppImage](https://github.com/pbracc/Open73_app/releases/download/v4.45.0/open73_4.45.0_amd64.AppImage) | [⬇ MSI](https://github.com/pbracc/Open73_app/releases/download/v4.45.0/open73_4.45.0_x64_en-US.msi) |  |
 
@@ -22,6 +23,7 @@
 
 | Version | Linux | Windows | Notes |
 |---------|-------|---------|-------|
+| v4.47.0 | [⬇ AppImage](https://github.com/pbracc/Open73_app/releases/download/v4.47.0/open73_4.47.0_amd64.AppImage) | [⬇ MSI](https://github.com/pbracc/Open73_app/releases/download/v4.47.0/open73_4.47.0_x64_en-US.msi) |  |
 | v4.45.5 | [⬇ AppImage](https://github.com/pbracc/Open73_app/releases/download/v4.45.5/open73_4.45.5_amd64.AppImage) | [⬇ MSI](https://github.com/pbracc/Open73_app/releases/download/v4.45.5/open73_4.45.5_x64_en-US.msi) |  |
 | v4.45.0 | [⬇ AppImage](https://github.com/pbracc/Open73_app/releases/download/v4.45.0/open73_4.45.0_amd64.AppImage) | [⬇ MSI](https://github.com/pbracc/Open73_app/releases/download/v4.45.0/open73_4.45.0_x64_en-US.msi) |  |
 
