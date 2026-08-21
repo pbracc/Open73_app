@@ -1,15 +1,15 @@
 {
-  "version": "4.62.0",
+  "version": "5.4.0",
   "notes": "",
-  "pub_date": "2026-07-15T18:26:12Z",
+  "pub_date": "2026-08-21T18:05:21Z",
   "platforms": {
     "linux-x86_64": {
-      "url": "https://github.com/pbracc/Open73_app/releases/download/v4.62.0/open73_4.62.0_amd64.AppImage.tar.gz",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMWVyUy81OE1xbTRwZm0wUjBQN2VEcnBXYUc1cDAxLzUyTlZONUgxUFlSS2FVb3hseXJYOGgzVVFkMkxibUljdFA5YVhnVFRyZklmTTh4OHpNT3hpYkFVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MTM4Njk1CWZpbGU6b3BlbjczXzQuNjIuMF9hbWQ2NC5BcHBJbWFnZS50YXIuZ3oKazFYSlVRblFUMnFOcEZPT0lpb25Jb09YalJPK1NuQWlOWHVBVWpCN1R0NzlrMnJwVDZqeC94bmtuNlFZWjZGR25mdzVVb1I2WGp5SWlPb0tZNlg4RFE9PQo="
+      "url": "https://github.com/pbracc/Open73_app/releases/download/v5.4.0/open73_5.4.0_amd64.AppImage.tar.gz",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMWVKaXpzcmdxWm11UVpzL0dQcTFSamZ4M2o4TGdMRGdiUHlrMCtLNTI1blp5Wm5peUZXeXQ5MFREbUxJZXoxbytsZU1QeGlhUi9XdzZISlA2SjVra0FzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg3MzM0NTA1CWZpbGU6b3BlbjczXzUuNC4wX2FtZDY0LkFwcEltYWdlLnRhci5negpkM1JYNnRla1M2YlRXSjhuTkg5YlVLM0ZQU0tOZDRVZW1kLzVTSHRwYWZYUW1uWm9aeTUzZTZUVGM5Ky9FMWdMeDBoUExrOGlxWUtLY0pvbFBHWmpCUT09Cg=="
     },
     "windows-x86_64": {
-      "url": "https://github.com/pbracc/Open73_app/releases/download/v4.62.0/open73_4.62.0_x64_en-US.msi.zip",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMVdRTnJwSlhFK2RrT3F5NHVmK0c5aCtMM3ZFVlcvNXBBNTdrNFFTYytzbTdmQVA5NE1LcUZzZnJlc1FuY1grUy84L2xwdjRBdUxYdFVTMGZGamkxS3d3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MTM5NzA0CWZpbGU6b3BlbjczXzQuNjIuMF94NjRfZW4tVVMubXNpLnppcAplVWgxeVVHQ0h2L1RlN0pHSThBY0JDNGJmcTVBR245eXlscnczWUhyd1JGSkJOaHdDQ1NMY2sxMGhsSDc3YUxRd29DR052OGwxblVOa21vK1RsWkZDZz09Cg=="
+      "url": "https://github.com/pbracc/Open73_app/releases/download/v5.4.0/open73_5.4.0_x64_en-US.msi.zip",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMWJwT3h0RTBWNUFrZENwNFNQYlUrMlBDQU1BNW16c0VuR0UxNWtXUzVUMy8zalRwcnVQM2NyUTBxL2EzZW1uc0J6T2xMWGFkZk84aEg2eXNvUjZvc3dnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg3MzM1Mzc3CWZpbGU6b3BlbjczXzUuNC4wX3g2NF9lbi1VUy5tc2kuemlwCnVobTFjTGZkRDJFN0JYTk1UbFBGRFNJdmJ6TkxBeWtackpBOGRiOTk4Vm9qRjFCVlo3dTd6elpCR0c5cG4wY016M3E0dXUyZFN4NVZLT3pVaGdzZkFBPT0K"
     }
   }
 }
