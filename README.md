@@ -19,7 +19,8 @@ Aplicación de escritorio para el registro de contactos de radioaficionados (QSO
 |------------|---------|----------|
 | 🐧 Linux   | AppImage | [⬇ Descargar](https://github.com/pbracc/Open73_app/releases/download/v5.4.0/open73_5.4.0_amd64.AppImage) <!-- LINUX_ASSET --> |
 | 🪟 Windows | Instalador MSI | [⬇ Descargar](https://github.com/pbracc/Open73_app/releases/download/v5.4.0/open73_5.4.0_x64_en-US.msi) <!-- WIN_ASSET --> |
-| 🍎 macOS Intel | DMG | [⬇ Descargar](https://github.com/pbracc/Open73_app/releases/latest) <!-- MAC_ASSET --> |
+| 🍎 macOS Intel | DMG | [⬇ Descargar](https://github.com/pbracc/Open73_app/releases/latest) <!-- MAC_INTEL_ASSET --> |
+| 🍎 macOS Apple Silicon | DMG | [⬇ Descargar](https://github.com/pbracc/Open73_app/releases/latest) <!-- MAC_ARM64_ASSET --> |
 
 ### Instalación
 
@@ -55,7 +56,8 @@ Desktop application for amateur radio contact logging (QSOs).
 |----------|--------|----------|
 | 🐧 Linux   | AppImage | [⬇ Download](https://github.com/pbracc/Open73_app/releases/download/v5.4.0/open73_5.4.0_amd64.AppImage) <!-- LINUX_ASSET --> |
 | 🪟 Windows | MSI Installer | [⬇ Download](https://github.com/pbracc/Open73_app/releases/download/v5.4.0/open73_5.4.0_x64_en-US.msi) <!-- WIN_ASSET --> |
-| 🍎 macOS Intel | DMG | [⬇ Download](https://github.com/pbracc/Open73_app/releases/latest) <!-- MAC_ASSET --> |
+| 🍎 macOS Intel | DMG | [⬇ Download](https://github.com/pbracc/Open73_app/releases/latest) <!-- MAC_INTEL_ASSET --> |
+| 🍎 macOS Apple Silicon | DMG | [⬇ Download](https://github.com/pbracc/Open73_app/releases/latest) <!-- MAC_ARM64_ASSET --> |
 
 ### Installation
 

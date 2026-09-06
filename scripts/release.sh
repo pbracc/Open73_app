@@ -79,14 +79,16 @@ LINUX_SIG=$(find      "$STAGING_DIR" -maxdepth 1 -type f -name "*.AppImage.tar.g
 WIN_MSI=$(find        "$STAGING_DIR" -maxdepth 1 -type f -name "*.msi" ! -name "*.zip"         | head -1)
 WIN_ZIP=$(find        "$STAGING_DIR" -maxdepth 1 -type f -name "*.msi.zip"                     | head -1)
 WIN_SIG=$(find        "$STAGING_DIR" -maxdepth 1 -type f -name "*.msi.zip.sig"                 | head -1)
-MAC_DMG=$(find        "$STAGING_DIR" -maxdepth 1 -type f -name "*intel*.dmg"                   | head -1)
-MAC_TARGZ=$(find      "$STAGING_DIR" -maxdepth 1 -type f -name "*intel*.app.tar.gz"            | head -1)
-MAC_SIG=$(find        "$STAGING_DIR" -maxdepth 1 -type f -name "*intel*.app.tar.gz.sig"        | head -1)
+MAC_INTEL_DMG=$(find   "$STAGING_DIR" -maxdepth 1 -type f -name "*intel*.dmg"                | head -1)
+MAC_INTEL_TARGZ=$(find "$STAGING_DIR" -maxdepth 1 -type f -name "*intel*.app.tar.gz"         | head -1)
+MAC_INTEL_SIG=$(find   "$STAGING_DIR" -maxdepth 1 -type f -name "*intel*.app.tar.gz.sig"     | head -1)
+MAC_ARM64_DMG=$(find   "$STAGING_DIR" -maxdepth 1 -type f -name "*arm64*.dmg"                | head -1)
+MAC_ARM64_TARGZ=$(find "$STAGING_DIR" -maxdepth 1 -type f -name "*arm64*.app.tar.gz"         | head -1)
+MAC_ARM64_SIG=$(find   "$STAGING_DIR" -maxdepth 1 -type f -name "*arm64*.app.tar.gz.sig"     | head -1)
 
-[[ -z "$LINUX_APPIMAGE" && -z "$WIN_MSI" && -z "$MAC_DMG" ]] && \
+[[ -z "$LINUX_APPIMAGE" && -z "$WIN_MSI" && -z "$MAC_INTEL_DMG" && -z "$MAC_ARM64_DMG" ]] && \
   error "No se encontraron binarios en staging/. Copiá al menos uno antes de continuar."
 
-# Validar que si hay AppImage también hay .tar.gz y .sig (requeridos por el updater)
 if [[ -n "$LINUX_APPIMAGE" ]]; then
   [[ -z "$LINUX_TARGZ" ]] && error "Falta el archivo .AppImage.tar.gz en staging/ (requerido por el updater)."
   [[ -z "$LINUX_SIG"   ]] && error "Falta el archivo .AppImage.tar.gz.sig en staging/ (requerido por el updater)."
@@ -95,17 +97,23 @@ if [[ -n "$WIN_MSI" ]]; then
   [[ -z "$WIN_ZIP" ]] && error "Falta el archivo .msi.zip en staging/ (requerido por el updater)."
   [[ -z "$WIN_SIG" ]] && error "Falta el archivo .msi.zip.sig en staging/ (requerido por el updater)."
 fi
-if [[ -n "$MAC_DMG" ]]; then
-  [[ -z "$MAC_TARGZ" ]] && error "Falta el archivo intel.app.tar.gz en staging/ (requerido por el updater)."
-  [[ -z "$MAC_SIG"   ]] && error "Falta el archivo intel.app.tar.gz.sig en staging/ (requerido por el updater)."
+if [[ -n "$MAC_INTEL_DMG" ]]; then
+  [[ -z "$MAC_INTEL_TARGZ" ]] && error "Falta intel.app.tar.gz en staging/ (requerido por el updater)."
+  [[ -z "$MAC_INTEL_SIG"   ]] && error "Falta intel.app.tar.gz.sig en staging/ (requerido por el updater)."
+fi
+if [[ -n "$MAC_ARM64_DMG" ]]; then
+  [[ -z "$MAC_ARM64_TARGZ" ]] && error "Falta arm64.app.tar.gz en staging/ (requerido por el updater)."
+  [[ -z "$MAC_ARM64_SIG"   ]] && error "Falta arm64.app.tar.gz.sig en staging/ (requerido por el updater)."
 fi
 
-[[ -n "$LINUX_APPIMAGE" ]] && info "Linux AppImage   : $(basename "$LINUX_APPIMAGE")"
-[[ -n "$LINUX_TARGZ"    ]] && info "Linux tar.gz     : $(basename "$LINUX_TARGZ")"
-[[ -n "$WIN_MSI"        ]] && info "Windows MSI      : $(basename "$WIN_MSI")"
-[[ -n "$WIN_ZIP"        ]] && info "Windows zip      : $(basename "$WIN_ZIP")"
-[[ -n "$MAC_DMG"        ]] && info "macOS Intel DMG  : $(basename "$MAC_DMG")"
-[[ -n "$MAC_TARGZ"      ]] && info "macOS Intel tar.gz: $(basename "$MAC_TARGZ")"
+[[ -n "$LINUX_APPIMAGE"  ]] && info "Linux AppImage      : $(basename "$LINUX_APPIMAGE")"
+[[ -n "$LINUX_TARGZ"     ]] && info "Linux tar.gz        : $(basename "$LINUX_TARGZ")"
+[[ -n "$WIN_MSI"         ]] && info "Windows MSI         : $(basename "$WIN_MSI")"
+[[ -n "$WIN_ZIP"         ]] && info "Windows zip         : $(basename "$WIN_ZIP")"
+[[ -n "$MAC_INTEL_DMG"   ]] && info "macOS Intel DMG     : $(basename "$MAC_INTEL_DMG")"
+[[ -n "$MAC_INTEL_TARGZ" ]] && info "macOS Intel tar.gz  : $(basename "$MAC_INTEL_TARGZ")"
+[[ -n "$MAC_ARM64_DMG"   ]] && info "macOS arm64 DMG     : $(basename "$MAC_ARM64_DMG")"
+[[ -n "$MAC_ARM64_TARGZ" ]] && info "macOS arm64 tar.gz  : $(basename "$MAC_ARM64_TARGZ")"
 
 # ---- Confirmar -------------------------------------------------------------
 echo ""
@@ -118,15 +126,19 @@ LINUX_APPIMAGE_FILENAME=$(basename "${LINUX_APPIMAGE:-}")
 LINUX_TARGZ_FILENAME=$(basename "${LINUX_TARGZ:-}")
 WIN_MSI_FILENAME=$(basename "${WIN_MSI:-}")
 WIN_ZIP_FILENAME=$(basename "${WIN_ZIP:-}")
-MAC_DMG_FILENAME=$(basename "${MAC_DMG:-}")
-MAC_TARGZ_FILENAME=$(basename "${MAC_TARGZ:-}")
+MAC_INTEL_DMG_FILENAME=$(basename "${MAC_INTEL_DMG:-}")
+MAC_INTEL_TARGZ_FILENAME=$(basename "${MAC_INTEL_TARGZ:-}")
+MAC_ARM64_DMG_FILENAME=$(basename "${MAC_ARM64_DMG:-}")
+MAC_ARM64_TARGZ_FILENAME=$(basename "${MAC_ARM64_TARGZ:-}")
 
 LINUX_APPIMAGE_URL="${REPO_URL}/releases/download/${TAG}/${LINUX_APPIMAGE_FILENAME}"
 LINUX_TARGZ_URL="${REPO_URL}/releases/download/${TAG}/${LINUX_TARGZ_FILENAME}"
 WIN_MSI_URL="${REPO_URL}/releases/download/${TAG}/${WIN_MSI_FILENAME}"
 WIN_ZIP_URL="${REPO_URL}/releases/download/${TAG}/${WIN_ZIP_FILENAME}"
-MAC_DMG_URL="${REPO_URL}/releases/download/${TAG}/${MAC_DMG_FILENAME}"
-MAC_TARGZ_URL="${REPO_URL}/releases/download/${TAG}/${MAC_TARGZ_FILENAME}"
+MAC_INTEL_DMG_URL="${REPO_URL}/releases/download/${TAG}/${MAC_INTEL_DMG_FILENAME}"
+MAC_INTEL_TARGZ_URL="${REPO_URL}/releases/download/${TAG}/${MAC_INTEL_TARGZ_FILENAME}"
+MAC_ARM64_DMG_URL="${REPO_URL}/releases/download/${TAG}/${MAC_ARM64_DMG_FILENAME}"
+MAC_ARM64_TARGZ_URL="${REPO_URL}/releases/download/${TAG}/${MAC_ARM64_TARGZ_FILENAME}"
 
 # ---- Actualizar latest.json ------------------------------------------------
 LATEST_URL="${REPO_URL}/releases/latest"
@@ -154,12 +166,20 @@ if [[ -n "$WIN_SIG" ]]; then
     '. + {"windows-x86_64": {"url": $url, "signature": $sig}}')
 fi
 
-if [[ -n "$MAC_SIG" ]]; then
-  MAC_SIGNATURE=$(cat "$MAC_SIG")
+if [[ -n "$MAC_INTEL_SIG" ]]; then
+  MAC_INTEL_SIGNATURE=$(cat "$MAC_INTEL_SIG")
   UPDATE_PLATFORMS=$(echo "$UPDATE_PLATFORMS" | jq \
-    --arg url "$MAC_TARGZ_URL" \
-    --arg sig "$MAC_SIGNATURE" \
+    --arg url "$MAC_INTEL_TARGZ_URL" \
+    --arg sig "$MAC_INTEL_SIGNATURE" \
     '. + {"darwin-x86_64": {"url": $url, "signature": $sig}}')
+fi
+
+if [[ -n "$MAC_ARM64_SIG" ]]; then
+  MAC_ARM64_SIGNATURE=$(cat "$MAC_ARM64_SIG")
+  UPDATE_PLATFORMS=$(echo "$UPDATE_PLATFORMS" | jq \
+    --arg url "$MAC_ARM64_TARGZ_URL" \
+    --arg sig "$MAC_ARM64_SIGNATURE" \
+    '. + {"darwin-aarch64": {"url": $url, "signature": $sig}}')
 fi
 
 jq -n \
@@ -175,13 +195,15 @@ info "update.json generado."
 # ---- Actualizar RELEASES.md ------------------------------------------------
 LINUX_LINK=""
 WIN_LINK=""
-MAC_LINK=""
-[[ -n "$LINUX_APPIMAGE" ]] && LINUX_LINK="[⬇ AppImage](${LINUX_APPIMAGE_URL})"
-[[ -n "$WIN_MSI"        ]] && WIN_LINK="[⬇ MSI](${WIN_MSI_URL})"
-[[ -n "$MAC_DMG"        ]] && MAC_LINK="[⬇ DMG](${MAC_DMG_URL})"
+MAC_INTEL_LINK=""
+MAC_ARM64_LINK=""
+[[ -n "$LINUX_APPIMAGE"  ]] && LINUX_LINK="[⬇ AppImage](${LINUX_APPIMAGE_URL})"
+[[ -n "$WIN_MSI"         ]] && WIN_LINK="[⬇ MSI](${WIN_MSI_URL})"
+[[ -n "$MAC_INTEL_DMG"   ]] && MAC_INTEL_LINK="[⬇ DMG](${MAC_INTEL_DMG_URL})"
+[[ -n "$MAC_ARM64_DMG"   ]] && MAC_ARM64_LINK="[⬇ DMG](${MAC_ARM64_DMG_URL})"
 
 NOTES_ESCAPED="${NOTES//$'\n'/ }"
-ROW="| ${TAG} | ${LINUX_LINK} | ${WIN_LINK} | ${MAC_LINK} | ${NOTES_ESCAPED} |"
+ROW="| ${TAG} | ${LINUX_LINK} | ${WIN_LINK} | ${MAC_INTEL_LINK} | ${MAC_ARM64_LINK} | ${NOTES_ESCAPED} |"
 
 awk -v row="$ROW" '
   /^\|[-| ]+\|/ {
@@ -205,9 +227,13 @@ if [[ -n "$WIN_MSI" ]]; then
   sed -i "s|\\[⬇ Descargar\\]([^)]*) <!-- WIN_ASSET -->|[⬇ Descargar](${WIN_MSI_URL}) <!-- WIN_ASSET -->|g" "$README"
   sed -i "s|\\[⬇ Download\\]([^)]*) <!-- WIN_ASSET -->|[⬇ Download](${WIN_MSI_URL}) <!-- WIN_ASSET -->|g" "$README"
 fi
-if [[ -n "$MAC_DMG" ]]; then
-  sed -i "s|\\[⬇ Descargar\\]([^)]*) <!-- MAC_ASSET -->|[⬇ Descargar](${MAC_DMG_URL}) <!-- MAC_ASSET -->|g" "$README"
-  sed -i "s|\\[⬇ Download\\]([^)]*) <!-- MAC_ASSET -->|[⬇ Download](${MAC_DMG_URL}) <!-- MAC_ASSET -->|g" "$README"
+if [[ -n "$MAC_INTEL_DMG" ]]; then
+  sed -i "s|\\[⬇ Descargar\\]([^)]*) <!-- MAC_INTEL_ASSET -->|[⬇ Descargar](${MAC_INTEL_DMG_URL}) <!-- MAC_INTEL_ASSET -->|g" "$README"
+  sed -i "s|\\[⬇ Download\\]([^)]*) <!-- MAC_INTEL_ASSET -->|[⬇ Download](${MAC_INTEL_DMG_URL}) <!-- MAC_INTEL_ASSET -->|g" "$README"
+fi
+if [[ -n "$MAC_ARM64_DMG" ]]; then
+  sed -i "s|\\[⬇ Descargar\\]([^)]*) <!-- MAC_ARM64_ASSET -->|[⬇ Descargar](${MAC_ARM64_DMG_URL}) <!-- MAC_ARM64_ASSET -->|g" "$README"
+  sed -i "s|\\[⬇ Download\\]([^)]*) <!-- MAC_ARM64_ASSET -->|[⬇ Download](${MAC_ARM64_DMG_URL}) <!-- MAC_ARM64_ASSET -->|g" "$README"
 fi
 info "README.md actualizado."
 
@@ -268,9 +294,12 @@ upload_asset() {
 [[ -n "$WIN_MSI"        ]] && upload_asset "$WIN_MSI"
 [[ -n "$WIN_ZIP"        ]] && upload_asset "$WIN_ZIP"
 [[ -n "$WIN_SIG"        ]] && upload_asset "$WIN_SIG"
-[[ -n "$MAC_DMG"        ]] && upload_asset "$MAC_DMG"
-[[ -n "$MAC_TARGZ"      ]] && upload_asset "$MAC_TARGZ"
-[[ -n "$MAC_SIG"        ]] && upload_asset "$MAC_SIG"
+[[ -n "$MAC_INTEL_DMG"   ]] && upload_asset "$MAC_INTEL_DMG"
+[[ -n "$MAC_INTEL_TARGZ" ]] && upload_asset "$MAC_INTEL_TARGZ"
+[[ -n "$MAC_INTEL_SIG"   ]] && upload_asset "$MAC_INTEL_SIG"
+[[ -n "$MAC_ARM64_DMG"   ]] && upload_asset "$MAC_ARM64_DMG"
+[[ -n "$MAC_ARM64_TARGZ" ]] && upload_asset "$MAC_ARM64_TARGZ"
+[[ -n "$MAC_ARM64_SIG"   ]] && upload_asset "$MAC_ARM64_SIG"
 
 echo ""
 info "Release $TAG publicado exitosamente."
