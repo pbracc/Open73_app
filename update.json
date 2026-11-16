@@ -1,23 +1,23 @@
 {
-  "version": "5.12.9",
+  "version": "5.12.17",
   "notes": "",
-  "pub_date": "2026-11-11T14:33:07Z",
+  "pub_date": "2026-11-16T19:43:49Z",
   "platforms": {
     "linux-x86_64": {
-      "url": "https://github.com/pbracc/Open73_app/releases/download/v5.12.9/open73_5.12.9_amd64.AppImage.tar.gz",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMVdOMk9PRUVSRnhpZ0RVYXZNUWpzSTRyMUZiemNXSk5xSUZIV3dFOTdOdDRaMGgrb2pwNzF4a0ROWGlWd1VmaDlBekFaMW9IQW9MV0NaeUVka2tidVFvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0MzM5MzIzCWZpbGU6b3BlbjczXzUuMTIuOV9hbWQ2NC5BcHBJbWFnZS50YXIuZ3oKUmkzNXM5MUVFbkhzVk4vdTFqaGxCTGU5U3VSaWF3NUYyNVdId1l2a3dQaFZTNG1pNWg2RGRKYTZBOTcrR0s4dmdmTGlkZTZ1MU1aTkxHemtMekVjQ3c9PQo="
+      "url": "https://github.com/pbracc/Open73_app/releases/download/v5.12.17/open73_5.12.17_amd64.AppImage.tar.gz",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMVgvaXNjb1dnQitxaGRLTFZZZmVIaHl4UVh1WXNTWTVsNFZDN0Irc1E0LzNOU0d6ZXJtcWZkbjlGUWpJVjJkL1NWcFdKVHpWU2g2TmFNMC9IRnNHendBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0ODQ5MzIxCWZpbGU6b3BlbjczXzUuMTIuMTdfYW1kNjQuQXBwSW1hZ2UudGFyLmd6ClNPR0xRS052L1pYdytyMmdPK1I0STdueDh2RXlraStmS0MrL0xCcVNkc0tSNVNjRmpxV3c4dnViNU9nbDd0aHI4cGpKTmthZi9oY3FqcU9rTEJqQkJnPT0K"
     },
     "windows-x86_64": {
-      "url": "https://github.com/pbracc/Open73_app/releases/download/v5.12.9/open73_5.12.9_x64_en-US.msi.zip",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMWVjeTZRN2xaeG9BU1lXOGNUd2dWZlVkSk44REFtNHZGMHJWYVBKNXZlVk8wTWx3MmhuSFVjRlc5UFdaT2RJWi8wRURwK1FrSUFSNlRaVWFvK0J5OHdjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0NDA2MjgzCWZpbGU6b3BlbjczXzUuMTIuOV94NjRfZW4tVVMubXNpLnppcAp6VmFjY0RvQjA3bW5PYzBKZkJ3aXNvTnp0SzBQZzBOMFN3bHV3V2lKWEdBaElkYWx3OVJOSzlMVHY1VGZGWWVoUG1YYnFsTllzYm94NEl3aVJ0d01EUT09Cg=="
+      "url": "https://github.com/pbracc/Open73_app/releases/download/v5.12.17/open73_5.12.17_x64_en-US.msi.zip",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMVRjRVJQRDFsbVJiSEMyL29ld1k2Ry91RG5Gejd2b3hjUTBGZFo2dVpuN25CdjdjUVdBSnNoWTJuK1FrL05pK3NBdXpOaEVxdWc5NXRBM2REWmZ3bWdzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0ODU2MDQ0CWZpbGU6b3BlbjczXzUuMTIuMTdfeDY0X2VuLVVTLm1zaS56aXAKK1crc2NiLzA1YUMzWlhBNDdmbDVGUmZJVkRueXpvbHM3MjFrRG10K0ZNK3pSTE5tQVh2MDBEMEp3enJBU0QrMW9YenpOakl0dHBKN2RQWUJuM2Q4QlE9PQo="
     },
     "darwin-x86_64": {
-      "url": "https://github.com/pbracc/Open73_app/releases/download/v5.12.9/open73_5.12.9_intel.app.tar.gz",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMVY4NkdOYmRFZE1BYXdCV1llOGhzem05RnRDTkkrTFljalBjVEFrd2ExaVBaU2M3UkpmUVhNK3BHUUJ4b0Y5NzN1N29SU0hwSFhSbFNHWjNSRkt0WVFNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0MzQyMzI3CWZpbGU6b3BlbjczLmFwcC50YXIuZ3oKK3JVdUNXaUZraHRJRFlnbjMybmlwc2VDdlE3T1JNUkUwYzB1ekVyRVpTZ0hIV2UwdkQ5RG9nY0RkTUpUbC9SMmlHMDVGN2VJNjJzUUZCeWhiV2RlQXc9PQo="
+      "url": "https://github.com/pbracc/Open73_app/releases/download/v5.12.17/open73_5.12.17_intel.app.tar.gz",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMWNPWS9GMFdNUnFNUUkxNENKbGpRVFlMaXBiK2JzQTZxelo3ZTVzY3BkdHh1MXZta1c2SEFVRTVnVGRKcmdYZDQrdjZNUm40aUFabmZWUDI1MDlrOEFRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0ODU3NTU1CWZpbGU6b3BlbjczLmFwcC50YXIuZ3oKajNTMlZuc0JicnVTdXpOTDBqZjFQb29UNWQ0T2drTmpzVkdIOVZ5UTdQT2IwMFhqdk1LR0wrUHBwS3lOQ1greEhpeXNQRnpPS0lIek5MVDVsWjU2QXc9PQo="
     },
     "darwin-aarch64": {
-      "url": "https://github.com/pbracc/Open73_app/releases/download/v5.12.9/open73_5.12.9_arm64.app.tar.gz",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMVdjZ25jZ09Yak5Ya2hrd1dCTGhzUTdvNnFxZTFOeDNSSDRxWUpPUExyVUgzY2hIZklJQjBValBjQjNrWVVjR1Q3a1RrbjVyQk9sVEVWUTMwUHZSU1FrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0NDA3NDI3CWZpbGU6b3BlbjczLmFwcC50YXIuZ3oKY3VyWlNxZjhESVRwazlHVmNWNzlNQ1RzVEZYMWkrVWh0YXBBZG9EYkhpdUxpNU9lMkM3OXA5M1RLWUdPNmtTbzlIK2kvUDNCYmFnL3diRWsxT1R4QUE9PQo="
+      "url": "https://github.com/pbracc/Open73_app/releases/download/v5.12.17/open73_5.12.17_arm64.app.tar.gz",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSamI3WDNmdUVNMWFKNklrYTIvNlh4Qkp5QkRLRkFxbDg1WkhtUmFERzExMEwzSXJKQmwxdjd0a29UUlpHR0dheUI5U2JEYlVWUlZKbkpseW5xdlJqRUtWZlh4NjdCZ0EwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0ODU3OTU4CWZpbGU6b3BlbjczLmFwcC50YXIuZ3oKdnJxdGxwTDJTQzV6dDJsMlpRWWlmOGhaMTZNdHZwakRSNG5CZ2lGV2ttcXh1ZkN2bk1sdUhtV0RxMEVuT0VnbzM2OVNZRXFLMWJncXJFZ3FYSTJLQ3c9PQo="
     }
   }
 }
